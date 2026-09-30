@@ -38,7 +38,11 @@ Infiltrar los servidores del Banco Mundial y transferir fondos a las cuentas cif
 - [ ] Activar el virus a las 03:00 UTC (Spider-Man no patrulla de madrugada)
 - [ ] Joker ejecuta distracción masiva en el centro de Gotham para mantener a Batman ocupado
 - [ ] Transferencia escalonada: 10 movimientos de $75M cada uno
-- [ ] Brainiac borra registros y planta evidencia falsa apuntando a Kingpin
+- [ ] Brainiac borra registros y planta evidencia falsa apuntando a Kingpindasdasd sadasd
+- [ ] dasd
+- [ ] dasd
+- [ ] dsadasd
+- [ ] 
 
 ## Recursos necesarios
 
