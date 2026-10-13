@@ -5,7 +5,7 @@ codigos-lanzamiento.env
 # archivos generados automáticamente
 dist/
 node_modules/
-
+Shields.io
 logs/server*.log
 !logs/server.log
 
