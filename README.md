@@ -6,7 +6,7 @@
 ![Release](https://img.shields.io/github/v/release/Xasheo/Curso-git-01-legion-mal)
 ![Issues](https://img.shields.io/github/issues/Xasheo/Curso-git-01-legion-mal)
 ![Último commit](https://img.shields.io/github/last-commit/Xasheo/Curso-git-01-legion-mal)
-![Licencia](https://img.shields.io/github/license/Xasheo/Curso-git-01-legion-mal)
+![Licencia](https://img.shields.io/github/license/Xasheo/Curso-git-01-legion-mal?cacheSeconds=60)
 
 
 # 🦹‍♂️ La Legión del Mal
