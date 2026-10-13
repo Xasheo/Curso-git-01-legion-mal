@@ -12,6 +12,7 @@
 #prueba de commits 
 
 # 🦹‍♂️ La Legión del Mal - Desde local
+### Es un grupo dedicado aprender git + github
 
 
 > _"El mundo no se conquista con fuerza bruta, se conquista con un buen plan y control de versiones."_
