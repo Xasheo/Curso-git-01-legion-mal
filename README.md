@@ -37,6 +37,8 @@ READMI.MD
 
 ## legion del mal 
 
+## el caso 6 no tiene nada que ver con el documento
+
 ## El Consejo de Villanos !!
 
 | Rango                     | Miembro    | Rol                                                     |
