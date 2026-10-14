@@ -9,7 +9,8 @@
 ![Licencia](https://img.shields.io/github/license/Xasheo/Curso-git-01-legion-mal?cacheSeconds=60)
 
 
-#prueba de commits 
+#Tarea se inicializo un cambo de modificacion
+Licencia es basica y fue copiada desde React
 
 # 🦹‍♂️ La Legión del Mal - Desde local
 ### Es un grupo dedicado aprender git + github
