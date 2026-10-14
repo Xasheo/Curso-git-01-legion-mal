@@ -2,7 +2,7 @@
 name: Temple para bugs de software
 about: 'ayuda a mejorar '
 title: 'Bug:'
-labels: bug, documentation, duplicate
+labels: bug, documentation, duplicate, Mejora de Software
 assignees: Xasheo
 
 ---
