@@ -21,10 +21,10 @@ on:
         required: true
         type: choice
         options:
-          - box
+          - dragon
           - eyes
           - fox
-          - ibm
+          - chesse
           - yasuna_03
       mensaje:
         description: "Mensaje para el consejo"
