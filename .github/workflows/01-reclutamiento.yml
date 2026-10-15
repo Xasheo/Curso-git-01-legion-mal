@@ -15,3 +15,8 @@ jobs:
         echo "===================="
         echo ""
         echo "nombre clave : ${{github.actor}}"
+        echo ""
+        echo "Contexto de Github"
+        echo "Repo : ${{github.repository}}"
+        echo "OPeracion : ${{github.sha}}"
+        echo "Metadata : ${{toJson(github)}}"
