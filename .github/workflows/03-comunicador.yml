@@ -16,6 +16,15 @@ on:
           - Lex luthor
           - Magneto
           - Joker
+      cow-mensaje:
+        description: "Caracteres bonitos"
+        required: true
+        type: choice
+        options:
+          - box
+          - fox
+          - ibm
+          - yasuna_03
       mensaje:
         description: "Mensaje para el consejo"
         required: true
@@ -49,7 +58,7 @@ jobs:
          echo ""
          echo "Fecha $(date -u +"%d/%m/%Y - %H:%M UTC")"
          echo "------------MENSAJE---------"
-         cowsay -f eyes "${{ inputs.mensaje}}"
+         cowsay -f "${{inputs.cow-mensaje}}" "${{ inputs.mensaje}}"
          echo ""
          echo "-------- ${{inputs.villano}}"
 
