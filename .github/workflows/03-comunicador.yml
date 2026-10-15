@@ -16,7 +16,7 @@ on:
           - Lex luthor
           - Magneto
           - Joker
-      cow-mensaje:
+      cow_mensaje:
         description: "Caracteres bonitos"
         required: true
         type: choice
@@ -58,7 +58,7 @@ jobs:
          echo ""
          echo "Fecha $(date -u +"%d/%m/%Y - %H:%M UTC")"
          echo "------------MENSAJE---------"
-         cowsay -f "${{inputs.cow-mensaje}}" "${{ inputs.mensaje}}"
+         cowsay -f "${{inputs.cow_mensaje}}" "${{ inputs.mensaje}}"
          echo ""
          echo "-------- ${{inputs.villano}}"
 
