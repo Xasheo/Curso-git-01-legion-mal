@@ -27,7 +27,7 @@ jobs:
         uname -a
         echo "Habilidades tecnicas"
         node --version
-        git --vresion
+        git --version
         python3 --version
     - name: reconocimiento del terrmo
       run: |
