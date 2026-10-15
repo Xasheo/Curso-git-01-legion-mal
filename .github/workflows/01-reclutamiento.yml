@@ -6,7 +6,6 @@ jobs:
   reporte-de-reclutamiento:
     runs-on: ubuntu-latest
   
-  steps:
-  - name: El agente se presenta
-    run: echo "soy lex luthor y el lider de la legion del mal"
-    
+    steps:
+    - name: El agente se presenta
+      run: echo "soy lex luthor y el lider de la legion del mal"
