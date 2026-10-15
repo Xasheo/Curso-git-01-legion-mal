@@ -37,10 +37,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Instalar el trasnmisor de la Legion 
+        run: sudo apt-get install -y cowsay
+
       - name: Imprimir variables
         run: |
-          echo "Inputs: " 
-          echo ""
-          echo "villano: ${{ inputs.villano }}"
-          echo "Nivel ${{ inputs.prioridad }}"
-          echo "Mensaje ${{ inputs.mensaje }}"
+         echo "=================================="
+         echo "      TRASMISIN INTERCEPTADA" 
+         echo "=================================="
+         echo "DE: : ${{ inputs.villano }}"
+         echo """
+         echo "Fecha $(date -u +"%d/%m/%Y - %H:%M UTC")"
+         echo "------------MENSAJE---------"
+         cowsay -f eyes "${{ inputs.mensaje}}"
+         echo ""
+         echo "-------- ${{inputs.villano}}"
+
