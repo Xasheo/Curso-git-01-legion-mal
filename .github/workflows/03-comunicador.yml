@@ -46,7 +46,7 @@ jobs:
          echo "      TRASMISIN INTERCEPTADA" 
          echo "=================================="
          echo "DE: : ${{ inputs.villano }}"
-         echo """
+         echo ""
          echo "Fecha $(date -u +"%d/%m/%Y - %H:%M UTC")"
          echo "------------MENSAJE---------"
          cowsay -f eyes "${{ inputs.mensaje}}"
