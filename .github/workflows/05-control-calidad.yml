@@ -11,7 +11,7 @@ jobs:
      
         steps:
             - name: Yo accedoa los planes
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
             - name: el consejo revisa los cambios
               run: |
                 chmod +x scrips/validar-planes.sh
