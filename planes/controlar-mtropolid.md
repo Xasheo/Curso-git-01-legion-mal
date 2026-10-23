@@ -4,4 +4,5 @@ no hacer nada calentaimiento global
 2. monitoria
 3. 3crear
 4. sdas
-5. 
+## Plan de escape
+corre del efecto 
