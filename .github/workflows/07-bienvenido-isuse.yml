@@ -2,8 +2,7 @@ name: 07 - Bienvenida a Issues - Nuevo
 
 # Se ejecuta inmediatamente cuando alguien crea (abre) un issue
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch: 
 
 # Permiso necesario para poder comentar en el issue
 permissions:
@@ -37,3 +36,26 @@ jobs:
               issue_number: numero,
               body: mensaje
             });
+
+      # Envia un correo de aviso cada vez que se crea un issue
+      # Requiere los secrets MAIL_USERNAME (tu Gmail) y MAIL_PASSWORD (contraseña de aplicacion de Gmail)
+      - name: Enviar correo de notificacion
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Nuevo issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+          to: leaxzemogaxelgomez@gmail.com
+          from: Legion GitHub Actions <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            Se ha creado un nuevo issue en ${{ github.repository }}.
+
+            Numero: #${{ github.event.issue.number }}
+            Titulo: ${{ github.event.issue.title }}
+            Autor: ${{ github.event.issue.user.login }}
+            Enlace: ${{ github.event.issue.html_url }}
+
+            El issue esta siendo revisado por Test-Felix.
