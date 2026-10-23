@@ -1,0 +1,76 @@
+name: 08 - Tag a Release
+
+# Se ejecuta cada vez que se sube (push) un tag que empiece con "v" (ej: v1.0.0)
+on:
+  push:
+    tags:
+      - 'v*'
+
+# Permiso necesario para poder crear el release
+permissions:
+  contents: write
+
+jobs:
+  crear-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el repositorio con todo el historial y tags
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generar changelog desde el tag anterior
+        id: changelog
+        run: |
+          TAG_ACTUAL="${GITHUB_REF_NAME}"
+
+          # Busca el tag anterior al actual (vacio si es el primer tag)
+          TAG_ANTERIOR=$(git describe --tags --abbrev=0 "${TAG_ACTUAL}^" 2>/dev/null || echo "")
+
+          if [ -z "$TAG_ANTERIOR" ]; then
+            RANGO="${TAG_ACTUAL}"
+            TITULO_RANGO="Primer release: todos los commits hasta ${TAG_ACTUAL}"
+          else
+            RANGO="${TAG_ANTERIOR}..${TAG_ACTUAL}"
+            TITULO_RANGO="Cambios desde ${TAG_ANTERIOR} hasta ${TAG_ACTUAL}"
+          fi
+
+          {
+            echo "## 🚀 Release ${TAG_ACTUAL}"
+            echo ""
+            echo "**Fecha:** $(date -u +'%Y-%m-%d %H:%M UTC')"
+            echo "**Autor del tag:** ${GITHUB_ACTOR}"
+            echo ""
+            echo "### 📝 ${TITULO_RANGO}"
+            echo ""
+            git log ${RANGO} --no-merges --pretty=format:'- %s (`%h`) — %an'
+            echo ""
+            echo ""
+            echo "### 📂 Archivos modificados"
+            echo ""
+            if [ -z "$TAG_ANTERIOR" ]; then
+              echo '```'
+              git ls-files
+              echo '```'
+            else
+              echo '```'
+              git diff --stat ${RANGO}
+              echo '```'
+            fi
+            echo ""
+            if [ -n "$TAG_ANTERIOR" ]; then
+              echo "**Comparación completa:** ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/${TAG_ANTERIOR}...${TAG_ACTUAL}"
+            fi
+          } > CHANGELOG_RELEASE.md
+
+          cat CHANGELOG_RELEASE.md
+
+      - name: Crear el release en GitHub
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "Release ${GITHUB_REF_NAME}" \
+            --notes-file CHANGELOG_RELEASE.md \
+            --verify-tag
